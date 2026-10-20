@@ -12,7 +12,7 @@ from fastapi import HTTPException, Request, status
 from fastapi.responses import FileResponse
 
 from src.api._compat import host_attr as _host_attr
-from src.config.paths import get_runs_dir, get_sessions_dir, get_uploads_dir
+from src.config.paths import get_runs_dir, get_runtime_root, get_sessions_dir, get_uploads_dir
 
 
 # ============================================================================
@@ -28,7 +28,7 @@ RUNS_DIR = get_runs_dir()
 SESSIONS_DIR = get_sessions_dir()
 UPLOADS_DIR = get_uploads_dir()
 AGENT_DIR = _AGENT_DIR
-ENV_PATH = Path.home() / ".vibe-trading" / ".env"
+ENV_PATH = get_runtime_root() / ".env"
 LEGACY_ENV_PATH = AGENT_DIR / ".env"
 ENV_EXAMPLE_PATH = AGENT_DIR / ".env.example"
 

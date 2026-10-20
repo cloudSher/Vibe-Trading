@@ -3,6 +3,7 @@ import { Building2, Activity, BarChart3, Bot, CalendarClock, CandlestickChart, F
 export const NAVIGATION_GROUPS = [
   { id: "research", items: [
     { id: "agent", to: "/", icon: Bot },
+    { id: "ashare", to: "/ashare", icon: CandlestickChart },
     { id: "reports", to: "/reports", icon: FileText },
     { id: "portfolio", to: "/portfolio", icon: WalletCards },
   ] },
