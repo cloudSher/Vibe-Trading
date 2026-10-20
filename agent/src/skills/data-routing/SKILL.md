@@ -54,6 +54,7 @@ is required only where listed (no key listed = free / no auth).
 | OHLCV price bars | `get_market_data` | A-share / US / HK / Canada / crypto / futures / forex | per-source (see Source Overview) |
 | Fund flow (资金流向) | `get_fund_flow` | A-share, HK, US | — |
 | Dragon-tiger (龙虎榜) | `get_dragon_tiger` | A-share | — |
+| Local intraday LHB observation pool (盘中龙虎榜观察) | `get_a_share_intraday` | A-share | Local monitor enabled at `/ashare`; no key |
 | Northbound flow (北向资金) | `get_northbound_flow` | A-share | — |
 | Margin trading (融资融券) | `get_margin_trading` | A-share | — |
 | Block trades (大宗交易) | `get_block_trades` | A-share | — |
@@ -76,6 +77,13 @@ is required only where listed (no key listed = free / no auth).
 | iWenCai NL search (问财) | `iwencai_search` | A-share | `VIBE_TRADING_IWENCAI_KEY` |
 
 Notes:
+- For this local deployment's intraday monitoring, use `get_a_share_intraday`.
+  It reads the latest disclosed LHB pool and timestamped public quotes already
+  collected by the local monitor. It contains no personal cash or holdings.
+  Respect `quality`, market phase and board date: `reference` is for review,
+  `stale`/missing quotes cannot support an entry signal. Daily `get_market_data`
+  bars cannot establish a current intraday price. Scores are observation rules,
+  never expected returns or win probabilities; all execution remains manual.
 - `get_financial_statements` reads US statements from SEC EDGAR companyfacts
   (ticker -> CIK -> XBRL concepts) and A-share/HK statements from the Eastmoney
   datacenter report API (per-market F10 report names).

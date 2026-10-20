@@ -2504,3 +2504,9 @@ The configured provider is used by CLI, API, Web, and agent runs alike.
 RSSHub daily event enrichment uses calendar-date keys: timezone-aware `as_of` values and daily bar labels retain their displayed date, matching the provider’s knowable-date policy. This does not convert intraday publication instants between markets.
 
 RSSHub feed `code_style` transformations separate the final venue suffix from the ticker, preserving share-class dots: `BRK.B.US` becomes `BRK.B` for `bare` routes and `USBRK.B` for `exchange_prefix`; `raw` remains unchanged.
+
+## Local A-share monitoring and paper portfolio
+
+The optional `/ashare` workspace adds timestamped Shanghai/Shenzhen mainboard news discovery, versioned daily observation plans shared with reports and a read-only Codex relay, auditable candidate rankings, configurable local drawdown alerts, and an independent paper portfolio with conditional intraday rotation. Price, news/disclosure, and portfolio risk gates remain separate; stale or unverified evidence cannot confirm an entry. Paper rotation never changes real holdings or submits broker orders, and simulated fills retain T+1 and cash constraints.
+
+See [local setup](LOCAL_SETUP.md) and the [A-share monitor guide](wiki/docs/ashare-monitor.md). Runtime accounts, authentication, published plans and paper records remain local and are not bundled with this source update. Public feeds and research rules do not guarantee coverage, execution or returns.

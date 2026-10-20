@@ -153,8 +153,10 @@ async def _lifespan(_: FastAPI) -> AsyncIterator[None]:
     """Run API startup and guaranteed reverse-order shutdown."""
     try:
         await _run_startup_preflight()
+        await get_ashare_service().start()
         yield
     finally:
+        await get_ashare_service().stop()
         await _stop_scheduled_research_on_shutdown()
 
 
@@ -203,6 +205,9 @@ from src.api.sessions_routes import (  # noqa: F401, E402
 # --- System ---
 from src.api.system_routes import register_system_routes  # noqa: E402
 register_system_routes(app)
+
+from src.api.ashare_routes import get_ashare_service, register_ashare_routes  # noqa: E402
+register_ashare_routes(app)
 
 from src.api.system_routes import _terminate_current_process  # noqa: F401, E402
 

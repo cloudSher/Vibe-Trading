@@ -180,3 +180,8 @@ agent/tests/artifacts/
 
 /pixel-office.sqlite3
 /pixel-office.sqlite3-*
+
+# Isolated local monitoring runtime (never commit account or authentication data).
+.bootstrap/
+.runtime/
+*.tsbuildinfo

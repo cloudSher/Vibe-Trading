@@ -16,6 +16,7 @@ const Settings = lazy(() =>
 const Runtime = lazy(() =>
   import("@/pages/Runtime").then((m) => ({ default: m.Runtime })),
 );
+const Ashare = lazy(() => import("@/pages/Ashare").then(m => ({ default: m.Ashare })));
 const Scheduled = lazy(() =>
   import("@/pages/Scheduled").then((m) => ({ default: m.Scheduled })),
 );
@@ -63,6 +64,7 @@ export const router = createBrowserRouter([
       { path: "/agent", element: wrap(Agent) },
       { path: "/pixel-office", element: wrap(PixelOffice) },
       { path: "/runtime", element: wrap(Runtime) },
+      { path: "/ashare", element: wrap(Ashare) },
       { path: "/scheduled", element: wrap(Scheduled) },
       { path: "/reports", element: wrap(Reports) },
       { path: "/portfolio", element: wrap(Portfolio) },

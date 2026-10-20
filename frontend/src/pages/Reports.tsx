@@ -15,6 +15,7 @@ import {
 import { api, type RunListItem } from "@/lib/api";
 import { formatMetricVal } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
+import { ObservationPlanCard } from "@/components/ashare/ObservationPlanCard";
 
 const REPORT_SCAN_LIMIT = 100;
 
@@ -105,6 +106,8 @@ export function Reports() {
             {t("reports.refresh")}
           </button>
         </section>
+
+        <ObservationPlanCard />
 
         <section className="grid gap-3 lg:grid-cols-[minmax(220px,1fr)_160px_150px_150px_170px]">
           <label className="relative block">
